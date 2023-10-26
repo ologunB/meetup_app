@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'base_api.dart';
 
 class AuthApi extends BaseAPI {
@@ -9,9 +7,9 @@ class AuthApi extends BaseAPI {
       final Response res = await dio().post(url, data: {'phone_number': p});
       log(res.data);
       switch (res.statusCode) {
-        case 201:
+        case Constants.created:
           return true;
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -28,7 +26,7 @@ class AuthApi extends BaseAPI {
       final Response res = await dio().post(url, data: {'phone_number': p});
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -46,7 +44,7 @@ class AuthApi extends BaseAPI {
           await dio().post(url, data: {'phone_number': p, 'otp': otp});
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -63,7 +61,7 @@ class AuthApi extends BaseAPI {
       final Response res = await dio().post(url, data: data);
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -81,7 +79,7 @@ class AuthApi extends BaseAPI {
           await dio().post(url, data: {'phone_number': p, 'password': pass});
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return LoginModel.fromJson(res.data['data']);
         default:
           throw error(res.data);
@@ -98,7 +96,7 @@ class AuthApi extends BaseAPI {
       final Response res = await dio().put(url, data: data);
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return UserModel.fromJson(res.data['data']);
         default:
           throw error(res.data);
@@ -137,7 +135,7 @@ class AuthApi extends BaseAPI {
       log(res.statusCode);
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -156,7 +154,7 @@ class AuthApi extends BaseAPI {
       log(res.statusCode);
       log(res.data);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -175,7 +173,7 @@ class AuthApi extends BaseAPI {
       log(res.data);
       log(res.statusCode);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
         default:
           throw error(res.data);
@@ -194,39 +192,8 @@ class AuthApi extends BaseAPI {
       log(res.data);
       log(res.statusCode);
       switch (res.statusCode) {
-        case 200:
+        case Constants.success:
           return true;
-        default:
-          throw error(res.data);
-      }
-    } catch (e) {
-      log(e);
-      throw MeetupException(DioErrorUtil.handleError(e));
-    }
-  }
-
-  Future<RevImage> uploadMedia(Uint8List bytes) async {
-    String url = 'user/update-profile-image';
-
-    try {
-      FormData forms = FormData();
-      forms.files.add(
-        MapEntry<String, MultipartFile>(
-          'image',
-          MultipartFile.fromBytes(
-            bytes,
-            contentType: MediaType('image', 'png'),
-            filename: 'p',
-          ),
-        ),
-      );
-
-      final Response res =
-          await dio(Headers.multipartFormDataContentType).put(url, data: forms);
-      log(res.data);
-      switch (res.statusCode) {
-        case 200:
-          return RevImage.fromJson(res.data['data']);
         default:
           throw error(res.data);
       }

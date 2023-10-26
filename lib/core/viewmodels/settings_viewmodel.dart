@@ -1,4 +1,4 @@
-import 'package:meetup/core/apis/base_api.dart';
+import 'package:meetup/core/services/base_api.dart';
 
 import '../../views/widgets/meetup_text.dart';
 

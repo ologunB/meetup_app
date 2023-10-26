@@ -1,4 +1,4 @@
-import 'meetup_text.dart';
+import '../widgets/meetup_text.dart';
 
 class AppColors {
   static const Color green = Color(0xff34A853);

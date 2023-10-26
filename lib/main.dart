@@ -1,7 +1,7 @@
 import 'package:meetup/views/auth/onboard_view.dart';
 
-import 'core/apis/local_storage.dart';
 import 'core/models/navigator.dart';
+import 'core/services/local_storage.dart';
 import 'locator.dart';
 import 'views/widgets/meetup_text.dart';
 

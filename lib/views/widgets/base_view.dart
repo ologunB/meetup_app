@@ -1,4 +1,4 @@
-import '../../core/vms/base_vm.dart';
+import '../../core/viewmodels/base_viewmodel.dart';
 import 'meetup_text.dart';
 
 class BaseView<T extends BaseModel> extends StatefulWidget {

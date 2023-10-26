@@ -4,8 +4,8 @@ import 'package:logger/logger.dart';
 import '../../views/widgets/snackbar.dart';
 import '../models/navigator.dart';
 
-export 'package:meetup/core/apis/local_storage.dart';
 export 'package:meetup/core/models/login_model.dart';
+export 'package:meetup/core/services/local_storage.dart';
 export 'package:provider/provider.dart';
 
 export '../../locator.dart';

@@ -7,8 +7,8 @@ import 'local_storage.dart';
 export 'dart:io';
 
 export 'package:dio/dio.dart';
-export 'package:http_parser/http_parser.dart';
 
+export '../../views/constants/constants.dart';
 export '../models/error_util.dart';
 export '../models/login_model.dart';
 export 'local_storage.dart';

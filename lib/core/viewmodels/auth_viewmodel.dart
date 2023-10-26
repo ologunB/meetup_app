@@ -1,6 +1,6 @@
 import '../../views/widgets/meetup_text.dart';
-import '../apis/auth_api.dart';
-import 'base_vm.dart';
+import '../services/auth_api.dart';
+import 'base_viewmodel.dart';
 
 class AuthViewModel extends BaseModel {
   final AuthApi _api = locator<AuthApi>();
@@ -148,38 +148,6 @@ class AuthViewModel extends BaseModel {
       error = e.message;
       setBusy(false);
       showVMSnackbar(e.message, err: true);
-      return false;
-    }
-  }
-
-  Future<RevImage?> uploadMedia(Uint8List bytes) async {
-    setBusy(true);
-    try {
-      RevImage? img = await _api.uploadMedia(bytes);
-      LoginModel? user = AppCache.getUser();
-      user?.user?.profileImage = img;
-      AppCache.setUser(user!);
-      setBusy(false);
-      return img;
-    } on MeetupException catch (e) {
-      error = e.message;
-      setBusy(false);
-      showVMSnackbar(e.message, err: true);
-      return null;
-    }
-  }
-
-  Future<bool> deleteMedia() async {
-    try {
-      await _api.deleteMedia();
-      LoginModel? user = AppCache.getUser();
-      user?.user?.profileImage = null;
-      AppCache.setUser(user!);
-      setBusy(false);
-      return true;
-    } on MeetupException catch (e) {
-      error = e.message;
-      setBusy(false);
       return false;
     }
   }

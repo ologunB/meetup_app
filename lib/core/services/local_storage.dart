@@ -1,7 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../models/login_model.dart';
-import '../vms/settings_vm.dart';
 
 class AppCache {
   static const String kUserBox = 'userBox';
@@ -19,7 +18,6 @@ class AppCache {
 
   static void setUser(LoginModel a) {
     _userBox.put(userKey, a.toJson());
-    settingsVM.currentUser = a.user!;
   }
 
   static LoginModel? getUser() {

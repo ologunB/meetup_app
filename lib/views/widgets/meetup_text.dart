@@ -23,8 +23,8 @@ export 'package:provider/provider.dart';
 export 'package:share_plus/share_plus.dart';
 export 'package:url_launcher/url_launcher_string.dart';
 
+export '../constants/colors.dart';
 export 'base_view.dart';
-export 'colors.dart';
 export 'footer_layout.dart';
 export 'meetup_button.dart';
 export 'meetup_field.dart';

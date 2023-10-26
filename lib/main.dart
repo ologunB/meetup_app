@@ -1,4 +1,5 @@
 import 'package:meetup/views/auth/onboard_view.dart';
+import 'package:meetup/views/constants/theming.dart';
 
 import 'core/models/navigator.dart';
 import 'core/services/local_storage.dart';
@@ -32,12 +33,7 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          theme: ThemeData(
-            colorScheme: const ColorScheme.light(primary: AppColors.primary),
-            textTheme: GoogleFonts.actorTextTheme(Theme.of(context).textTheme),
-            primaryColor: AppColors.primary,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
+          theme: appTheme,
           navigatorKey: AppNavigator.navKey,
           home: const OnboardScreen(),
         ),

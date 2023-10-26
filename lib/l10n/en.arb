@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "createAccount": "Create an Account",
+  "login": "Login",
+  "appName": "It's July",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}

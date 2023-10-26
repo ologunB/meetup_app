@@ -2,6 +2,7 @@ import 'package:meetup/views/auth/onboard_view.dart';
 
 import 'core/models/navigator.dart';
 import 'core/services/local_storage.dart';
+import 'localizations.dart';
 import 'locator.dart';
 import 'views/widgets/meetup_text.dart';
 
@@ -29,7 +30,8 @@ class App extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, builder) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'DL',
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           theme: ThemeData(
             colorScheme: const ColorScheme.light(primary: AppColors.primary),
             textTheme: GoogleFonts.actorTextTheme(Theme.of(context).textTheme),

@@ -1,5 +1,7 @@
 import 'package:meetup/views/widgets/meetup_text.dart';
 
+import '../../localizations.dart';
+
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({Key? key}) : super(key: key);
 
@@ -64,7 +66,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
               children: [
                 Placeholder(fallbackHeight: 153.h),
                 MeetupText(
-                  'DEEPER LIFE YOUNG ADULTS USA\n(DLYA)',
+                  AppLocalizations.of(context)!.appName,
                   fontWeight: FontWeight.w400,
                   fontSize: 18.sp,
                   color: Colors.white,
@@ -72,7 +74,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 ),
                 const Spacer(),
                 MeetupButton(
-                  'Create an Account',
+                  AppLocalizations.of(context)!.createAccount,
                   buttonColor: AppColors.primary,
                   height: 50,
                   safeArea: false,
@@ -85,7 +87,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 ),
                 SizedBox(height: 16.h),
                 MeetupButton(
-                  'Log in',
+                  AppLocalizations.of(context)!.login,
                   buttonColor: Colors.transparent,
                   height: 50,
                   fontSize: 14.sp,
